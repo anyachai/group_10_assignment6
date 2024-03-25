@@ -1,46 +1,50 @@
-class PacMan{
+class PacMan {
   int posX;
   int posY;
-  
-  void PacMan(int posX, int posY){
+  int direction;
+  PImage img_pacman;
+
+  PacMan(int posX, int posY, int direction, PImage img_pacman) {
     this.posX = posX;
     this.posY = posY;
+    this.direction = direction;
+    this.img_pacman = img_pacman;
   }
-  
+
   void turnRight() {
-    if (direction == 3){
-      direction = 0;
-    } else{
-      direction += 1;
-    }
+    direction = (direction + 1) % 4;
   }
-  
+
   void turnLeft() {
-    if (direction == 0){
-      direction = 3;
-    }else{
-      direction -= 1;
-    }
+    direction = (direction - 1 + 4) % 4;
   }
-  
+
   void move() {
-  
-    if (direction == 0 && posY > 0) {
-      posY--; 
-    } else if (direction == 1 && posX < grid.length - 1) {
-      posX++;
-    } else if (direction == 2 && posY < grid[0].length - 1) {
-      posY++;
-    } else if (direction == 3 && posX > 0) {
-      posX--;
+    direction = int(random(4));
+    
+    // Moving the pacman around with 'wrap' around the edges
+    if (direction == 0) {
+      posY = (posY - 1 + grid[0].length) % grid[0].length;
+    } else if (direction == 1) {
+      posX = (posX + 1) % grid.length;
+    } else if (direction == 2) {
+      posY = (posY + 1) % grid[0].length;
+    } else if (direction == 3) {
+      posX = (posX - 1 + grid.length) % grid.length;
     }
     
-    if (grid[posX][posY] == 0) {
-        fill(255);
-    } else {
-        fill(0);
+    // Rotating the pacman based on direction
+    pushMatrix();
+    translate((posX + 0.5) * 20, (posY + 0.5) * 20);
+    if (direction == 0) {
+        rotate(HALF_PI);
+    } else if (direction == 1) {
+        rotate(PI);
+    } else if (direction == 2) {
+        rotate(-HALF_PI);
     }
-    rect(posX * 10, posY * 10, 10, 10);
-    
+    imageMode(CENTER);
+    image(img_pacman, 0, 0, 20, 20);
+    popMatrix();
   }
 }

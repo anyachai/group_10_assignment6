@@ -3,29 +3,24 @@ int[][] grid;
 int posX;
 int posY;
 int direction = 0;
+PImage img_pacman;
 
 void setup() {
   frameRate(5);
   size(500, 500);
-  grid = new int[width / 10][height / 10];
-  posX = grid.length / 2;
-  posY = grid[0].length / 2;
-  pacman = new PacMan(posX, posY);
-  background(255);
-  for (int i = 0; i < grid.length; i++) {
-    for (int j = 0; j < grid[i].length; j++) {
-      grid[i][j] = 0;
-    }
-  }
+  background(0);
+  img_pacman = loadImage("pacman.png");
+  
+  // Creating the grid
+  grid = new int[width / 20][height /20];
+  
+  // Creating the characters
+  pacman = new PacMan(grid.length / 2, grid[0].length / 2, direction, img_pacman);
 }
 
 void draw() {
-  if (grid[posX][posY] == 0) {
-    pacman.turnRight();
-    grid[posX][posY] = 1; 
-  } else {
-    pacman.turnLeft();
-    grid[posX][posY] = 0;
-  }
+  background(0);
+
+  // Moving the Pac-Man
   pacman.move();
 }
