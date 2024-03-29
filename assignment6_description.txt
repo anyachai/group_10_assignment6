@@ -1,1 +1,4 @@
+What the intended simulation depicts, what the included classes do, and any unexpected challenges. That is, this is mostly a rehash of the progress report but from the position of what you accomplished rather than what you were planning. Also document which group member worked on which part of the assignment. While group coding is allowed, each member is responsible for their individual parts -- this ensures all group members are participating and have mastery of the assignment.
 
+OVERVIEW
+The simulation is inspired by Langton's ant and Pac-Man, 
