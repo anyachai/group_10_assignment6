@@ -47,4 +47,8 @@ class PacMan {
     image(img_pacman, 0, 0, 20, 20);
     popMatrix();
   }
+  
+  int[] position() {
+    return new int[] {posX, posY};
+  }
 }
