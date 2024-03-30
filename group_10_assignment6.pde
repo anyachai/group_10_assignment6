@@ -15,7 +15,7 @@ void setup() {
   noStroke();
   
   // Creating the grid
-  grid = new int[width / 20][height /20];
+  grid = new int[width / 20][height / 20];
   
   // Creating the characters
   pacman = new PacMan(grid.length / 2, grid[0].length / 2, direction, img_pacman);
@@ -33,5 +33,5 @@ void draw() {
   
   // Displaying pellets
   Test.display(pacman.position());
-  grid = Test.update();
+  grid = Test.update(pacman.position());
 }
