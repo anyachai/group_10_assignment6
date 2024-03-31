@@ -9,7 +9,7 @@ class PelletArray {
       for (int j = 0; j < arrayHeight; j++) {
         float r = random(2);
         
-        if (r < 0.5) {
+        if (r < 0.2) {
           // Half of the array is empty 
           oldArray[i][j] = randomPellet(i,j);
         } else {
@@ -54,7 +54,7 @@ class PelletArray {
         }
     
         if (oldArray[i][j] != null) {
-          if ((neighbors < 3) || (neighbors > 5)) {
+          if ((neighbors < 2) || (neighbors > 4)) {
             // Underpopulation OR Overpopulation
             newArray[i][j] = null;
           } else {
@@ -85,9 +85,9 @@ class PelletArray {
     Pellet somePellet;
     float r = random(1);
     
-    if (r < 0.85) {
+    if (r < 0.90) {
       somePellet = new Pellet(i*20,j*20);
-    } else if (r < 0.95) {
+    } else if (r < 0.99) {
       somePellet = new PowerPellet(i*20,j*20);
     } else {
       somePellet = new Fruit(i*20,j*20);
