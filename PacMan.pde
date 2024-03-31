@@ -2,13 +2,11 @@ class PacMan {
   int posX;
   int posY;
   int direction;
-  PImage img_pacman;
 
-  PacMan(int posX, int posY, int direction, PImage img_pacman) {
+  PacMan(int posX, int posY, int direction) {
     this.posX = posX;
     this.posY = posY;
     this.direction = direction;
-    this.img_pacman = img_pacman;
   }
 
   void turnRight() {
