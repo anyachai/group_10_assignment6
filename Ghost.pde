@@ -134,8 +134,8 @@ class Ghost {
   void display() {
     pushMatrix();
     translate(xPos * 20 + 10, yPos * 20 + 10);
-    fill(0, 255, 78);
-    ellipse(0, 0, 10, 10);
+    imageMode(CENTER);
+    image(img_ghost, 0, 0, 20, 20);
     popMatrix();
   }
 }
