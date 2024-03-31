@@ -14,7 +14,7 @@ boolean paused;
 
 void setup() {
   // Set up screen
-  frameRate(2);
+  frameRate(3);
   size(500, 500);
   background(0);
   paused = false;
