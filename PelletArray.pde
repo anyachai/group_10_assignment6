@@ -9,7 +9,7 @@ class PelletArray {
       for (int j = 0; j < arrayHeight; j++) {
         float r = random(2);
         
-        if (r < 0.2) {
+        if (r < 0.3) {
           // Half of the array is empty 
           oldArray[i][j] = randomPellet(i,j);
         } else {
