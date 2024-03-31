@@ -14,7 +14,7 @@ boolean paused;
 
 void setup() {
   // Set up screen
-  frameRate(4);
+  frameRate(2);
   size(500, 500);
   background(0);
   paused = false;
@@ -56,13 +56,13 @@ void setup() {
 void draw() {
   if (!paused) {
     background(0);
-
-    // Moving the Pac-Man
-    pacman.move();
   
     // Displaying Pellets, Power Pellets, and Fruits
     PelletGrid.display(pacman.position());
   
+    // Moving the Pac-Man
+    pacman.move();
+    
     // Moving the ghost
     for (int i = 0; i < 5; i++) {
       ghosts[i].move();

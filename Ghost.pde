@@ -8,6 +8,7 @@ class Ghost {
   }
   
   void move() {
+    
     // List of available directions --> {N, E, S, W}
     boolean[] availableDirections = {true, true, true, true};
     int[] distToPac = {999, 999, 999, 999};
@@ -138,4 +139,5 @@ class Ghost {
     image(img_ghost, 0, 0, 20, 20);
     popMatrix();
   }
+
 }
