@@ -1,10 +1,12 @@
 class PelletArray {
   Pellet[][] oldArray = new Pellet[width / 20][height / 20];
   Pellet[][] newArray = new Pellet[width / 20][height / 20];
+  int arrayWidth = oldArray.length;
+  int arrayHeight = oldArray[0].length;
 
   PelletArray(int[] pmPos) {
-    for (int i = 0; i < oldArray.length; i++) {
-      for (int j = 0; j < oldArray[i].length; j++) {
+    for (int i = 0; i < arrayWidth; i++) {
+      for (int j = 0; j < arrayHeight; j++) {
         float r = random(2);
         
         if (r < 0.5) {
@@ -16,9 +18,11 @@ class PelletArray {
         }
       }
     }
+    // Remove pellet from Pacman spawnpoint
+    oldArray[pmPos[0]][pmPos[1]] = null;
   }
   
-  void display() {
+  void display(int[] pmPos) {
     for (Pellet[] i : oldArray) {
       for (Pellet j : i) {
         if (j != null) {
@@ -26,12 +30,10 @@ class PelletArray {
         }
       }
     }
-  }
-  
-  void update(int[] pmPos) {
+    
     // Count Neighbors
-    for (int i = 0; i < oldArray.length; i++) {
-      for (int j = 0; j < oldArray[i].length; j++) {
+    for (int i = 0; i < arrayWidth; i++) {
+      for (int j = 0; j < arrayHeight; j++) {
         int neighbors = 0;
         
         // Check the surrounding eight neighbors
@@ -40,8 +42,8 @@ class PelletArray {
             
             // Check that index is within bounds
             // and Exclude the middle cell  
-            if ((i+h >= 0) && (i+h <= oldArray.length-1) && 
-                (j+k >= 0) && (j+k <= oldArray[i].length-1) &&
+            if ((i+h >= 0) && (i+h <= arrayWidth-1) && 
+                (j+k >= 0) && (j+k <= arrayHeight-1) &&
                 ((h != 0) || (k != 0))) {
                      
                   if (oldArray[i+h][j+k] != null) {
@@ -52,7 +54,7 @@ class PelletArray {
         }
     
         if (oldArray[i][j] != null) {
-          if ((neighbors < 2) || (neighbors > 4)) {
+          if ((neighbors < 3) || (neighbors > 5)) {
             // Underpopulation OR Overpopulation
             newArray[i][j] = null;
           } else {
@@ -69,8 +71,8 @@ class PelletArray {
     }
     
     // Remove pellet where Pacman is currently at
-    newArray[(pmPos[0] + oldArray.length) % oldArray.length]
-    [(pmPos[0] + oldArray[0].length) % oldArray[0].length] = null;
+    newArray[(pmPos[0] + arrayWidth) % arrayWidth]
+    [(pmPos[1] + arrayHeight) % arrayHeight] = null;
     
     // Copy new array to old array
     for (int k = 0; k < oldArray.length; k++) {

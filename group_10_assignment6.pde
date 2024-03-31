@@ -11,7 +11,7 @@ PImage img_fruit;
 
 void setup() {
   // Set up screen
-  //frameRate(5);
+  frameRate(4);
   size(500, 500);
   background(0);
   
@@ -43,11 +43,10 @@ void setup() {
 
 void draw() {
   background(0);
-  
-  // Displaying Pellets, Power Pellets, and Fruits
-  PelletGrid.display();
-  PelletGrid.update(pacman.position());
 
   // Moving the Pac-Man
   pacman.move();
+  
+  // Displaying Pellets, Power Pellets, and Fruits
+  PelletGrid.display(pacman.position());
 }
