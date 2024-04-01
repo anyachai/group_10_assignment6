@@ -17,3 +17,6 @@ Note: Image for pacman was saved from https://commons.wikimedia.org/wiki/File:Or
 Pac-Man operates on two basic rules:
 - Pac-Man checks for pellets in surrounding cells and moves in the direction of a pellet.
 - Pac-Man checks for ghosts in surrounding cells and moves away from the ghost.
+
+EXTRA CREDIT
+The simulation is able to be paused by clicking on the screen.
