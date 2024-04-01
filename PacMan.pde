@@ -19,9 +19,42 @@ class PacMan {
         }
         for (Ghost ghost : ghosts) {
             if (ghost.xPos == posX - 1) {
-                posX = posX + 1;
+                posX = constrain(posX + 1, 0, 500);
             }
         }
+    }
+    if (posX != grid.length - 1 && direction == 1 && !pelletFound) { // Check right
+      if (posX + 1 < grid.length && PelletGrid.oldArray[posX + 1][posY] != null) {
+        posX = posX + 1;
+        pelletFound = true;
+      }
+      for (Ghost ghost : ghosts){
+        if (ghost.xPos == posX + 1){
+          posX = constrain(posX - 1,0,500);
+        }
+      }
+    }
+    if (posY != 0 && direction == 0 && !pelletFound) { // Check up
+      if (PelletGrid.oldArray[posX][posY - 1] != null) {
+        posY = posY - 1;
+        pelletFound = true;
+      }
+      for (Ghost ghost : ghosts){
+        if (ghost.yPos == posY - 1){
+          posY = constrain(posY + 1, 0, 500);
+        }
+      }
+    }
+    if (posY != grid[0].length - 1 && direction == 2 && !pelletFound) { // Check down
+      if (PelletGrid.oldArray[posX][posY + 1] != null) {
+        posY= posY + 1;
+        pelletFound = true;
+      }
+      for (Ghost ghost : ghosts){
+        if (ghost.yPos == posY + 1){
+          posY = constrain(posY - 1, 0, 500);
+        }
+      }
     }
 
     // Update direction if a pellet is not found
