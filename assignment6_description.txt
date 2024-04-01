@@ -3,6 +3,7 @@ What the intended simulation depicts, what the included classes do, and any unex
 OVERVIEW
 The simulation is inspired by Langton's ant and Pac-Man. In the simulation, there is a Pac-Man, a few ghosts, and pellets. Pac-Man, the ghosts, and the pellets exhibit different behavior from different rules, which are described for each class below.
 
+CLASSES
 Ghosts (Ben)
 Note: Image for the ghosts was borrowed from https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b387032e-23e6-4543-bdf6-e65585c15d93/dexnpu5-3ccc2e4e-b690-4bab-bda9-cc6bdd93866c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IzODcwMzJlLTIzZTYtNDU0My1iZGY2LWU2NTU4NWMxNWQ5M1wvZGV4bnB1NS0zY2NjMmU0ZS1iNjkwLTRiYWItYmRhOS1jYzZiZGQ5Mzg2NmMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.xn_b3yVJz8T6ANtH7260DLclfm9XBeaawN3ZeceZzbA,
 The ghosts operate on three basic rules:
@@ -10,3 +11,9 @@ The ghosts operate on three basic rules:
 - In order for a ghost to move in a given direction, there must be a power pellet present. If there are no adjacent power pellets, the ghost cannot move. However, if pacman is one space away in any direction, the ghosts can move in that direction without a power pellet.
 - If a ghost is less than 15 spaces away from pacman in the x or y direction, the ghost will move in the direction in which PacMan is the closest, unless pacman is zero spaces away in x or y. If pacman is zero spaces away in the x or y, pacman will attempt to move in the other direction.
 The ghosts adhere to the same grid system as the pellets and PacMan. At each ghost's current location, the image from the above URL is displayed.
+
+Pac-Man (Anya)
+Note: Image for pacman was saved from https://commons.wikimedia.org/wiki/File:Original_PacMan.png
+Pac-Man operates on two basic rules:
+- Pac-Man checks for pellets in surrounding cells and moves in the direction of a pellet.
+- Pac-Man checks for ghosts in surrounding cells and moves away from the ghost.
